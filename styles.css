@@ -1,0 +1,101 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(34, 197, 94, .18), transparent 24rem),
+    radial-gradient(circle at 90% 0%, rgba(249, 115, 22, .14), transparent 22rem),
+    linear-gradient(135deg, #eef7ff 0%, #f8fafc 45%, #eefcf4 100%);
+}
+
+.window {
+  display: none;
+}
+
+.window.active {
+  display: block;
+}
+
+.window[hidden] {
+  display: none;
+}
+
+button,
+input {
+  min-width: 0;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(15, 127, 210, .35);
+  outline-offset: 2px;
+}
+
+.dock-btn.active {
+  background: #0f7fd2;
+  color: white;
+  box-shadow: 0 10px 25px rgba(15, 127, 210, .24);
+}
+
+.code-line::before {
+  color: #64748b;
+  content: "$ ";
+  user-select: none;
+}
+
+pre,
+code {
+  max-width: 100%;
+}
+
+pre {
+  white-space: pre;
+}
+
+.copy.copied {
+  background: #22c55e;
+  color: white;
+}
+
+.copy.failed {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.project-card.active {
+  border-color: #0f7fd2;
+  box-shadow: 0 14px 30px rgba(15, 127, 210, .16);
+}
+
+.project-step.active {
+  border-color: #0f7fd2;
+  background: #f0f9ff;
+}
+
+@media (max-width: 767px) {
+  #dock {
+    display: flex;
+    overflow-x: auto;
+    margin-inline: -.25rem;
+    padding: 0 .25rem .35rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dock-btn {
+    min-width: 9.5rem;
+    scroll-snap-align: start;
+  }
+
+  .window {
+    border-radius: .5rem;
+  }
+
+  pre {
+    max-height: 22rem;
+    font-size: .78rem;
+    line-height: 1.45;
+  }
+}
